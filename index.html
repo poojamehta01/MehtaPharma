@@ -1,63 +1,800 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Homepage - Mehta Pharma</title>
-  <link rel="stylesheet" href="styles.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="CBC Pharma - We mean healthcare" />
+        <meta property="og:image" content="https://cbcpharma.com/demo/resources/images/icon.png" />
+        <meta property="og:image:type" content="image/png" /> 
+        <meta property="og:image:width" content="500" /> 
+        <meta property="og:image:height" content="500" />
+        <title>CBC Pharma - We mean healthcare</title>
+        <link rel="shortcut icon" href="./resources/images/logo.png" type="image/x-icon" />
+        <link rel="stylesheet" href="./resources/css/style.css">
+        <script src="./resources/js/script.js" defer></script>
+
+        <style>
+                .swiper {
+                        width: 100%;
+                        height: 100%;
+                }
+
+                .swiper-slide {
+                        /* width: 10rem; */
+                        display: flex;
+                        justify-content: center;
+                        align-items: stretch;
+                }
+
+                .swiper-slide img {
+                        display: block;
+                        width: 100%;
+                        aspect-ratio: 1.59/1;
+                        object-fit: contain;
+                        mix-blend-mode: multiply;
+                }
+
+                .swiper-pagination {
+                        bottom: 0px !important;
+                }
+
+                #success {
+                        display: none;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                        color: rgb(45, 172, 45);
+                }
+
+                #alert {
+                        display: none;
+                        font-weight: 500;
+                        font-size: 1.2rem;
+                }
+        </style>
+
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+        <!-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> -->
+        <link rel="stylesheet" href="./resources/css/aos.css">
+
+        <!-- Swiper Library CDN -->
+        <link rel="stylesheet" href="./resources/css/swiper-bundle.min.css">
+        <script src="./resources/js/swiper-bundle.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+	<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script> -->
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="container">
-        <a href="index.html" class="logo">Mehta Pharma</a>
-        <ul class="menu">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="products.html">Products</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        <header class="home_header" id="banner_id">
+                <div class="header_container">
+                        <nav class="navbar">
+                                <div class="container nav_container">
+                                        <div class="logo_container">
+                                                <a href="./index.html">
+                                                        <img src="./resources/images/logo.png" alt="">
+                                                </a>
+                                        </div>
+                                        <div  class="nav_items_container" id="nav_mobile">
+                                                <ion-icon name="close" id="close"></ion-icon>
+                                                <ul>
+                                                        <li><a class="active" href="./index.html">Home</a></li>
+                                                        <li><a href="./pages/about.html">About Us</a></li>
+                                                        <li><a href="./pages/directors.html">Director's Profile</a></li>
+                                                        <li>
+                                                                <a href="./pages/products.html">Products</a>
+                                                                <!-- <div class="sub_menu">
+                                                                        <ul class="sub_items">
+                                                                                <li><a href="#">Domestic</a></li>
+                                                                                <li><a href="#">Export</a></li>
+                                                                                <li><a href="#">Import</a></li>
+                                                                                <li><a href="http://cbcpharma.com/wp-content/uploads/2022/06/Api-new-list.pdf" target="_blank">APIs</a></li>
+                                                                        </ul>
+                                                                </div> -->
+                                                        </li>
+                                                        <li><a href="/news/">News</a></li>
+                                                        <li>
+                                                                <a href="#">Investors <ion-icon name="chevron-forward-outline"></ion-icon></a>
+                                                                <div class="sub_menu">
+                                                                        <div class="sub_menu_container">
+                                                                                <div class="sub_menu_head">
+                                                                                        <h4>Investors</h4>
+                                                                                </div>
+                                                                                <div class="sub_menu_items">
+                                                                                        <div class="left_menu">
+                                                                                                <a href="./pages/invester.html#investor_policies">Policies</a>
+                                                                                                <a href="./pages/invester.html#investor_grievance">Investor Grievance</a>
+                                                                                        </div>
+                                                                                        <div class="right_menu">
+                                                                                                <a href="./pages/invester.html" class="sub_head">SEBI compliance</a>
+                                                                                                <ul>
+                                                                                                        <li><a href="./pages/invester.html#list_annual">Annual Report</a></li>
+                                                                                                         <li><a href="./pages/invester.html#results">Financial Results</a></li>
+                                                                                                         <li><a href="./pages/invester.html#list_report">Reconciliation Report</a></li>
+                                                                                                         <li><a href="./pages/invester.html#list_re7">Regulation_7(3)</a></li>
+                                                                                                         <li><a href="./pages/invester.html#list_re40">Regulation_40(10)</a></li>
+                                                                                                         <li><a href="./pages/invester.html#list_pattern">Shareholding Pattern</a></li>    
+                                                                                                </ul>
+                                                                                        </div>
+                                                                                </div>
+                                                                        </div>
+                                                                </div>
+                                                        </li>
+                                                        <li><a href="./pages/gallery.html">Gallery</a></li>
+                                                        <li><a href="./pages/contact.html">Contact</a></li>
+                                                </ul>
+                                        </div>
+                                        <ion-icon name="menu" id="menu"></ion-icon>
+                                </div>
+                        </nav>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Welcome to Mehta Pharma</h1>
-      <p>We offer a wide range of high-quality pharmaceutical products.</p>
-      <a href="products.html" class="btn">View Products</a>
-    </div>
-  </section>
+                        <div class="header_slider_container container">
+                                <div class="swiper header_swiper">
+                                        <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                        <div class="header-item">
+                                                                <div class="left-container">
+                                                                        <div class="text-content" data-aos="fade-right" data-aos-duration="1000">
+                                                                                <h1>
+                                                                                        Innovation
+                                                                                        <span>For Wellness</span>
+                                                                                </h1>
 
-  <section class="featured-products">
-    <div class="container">
-      <h2>Featured Products</h2>
-      <div class="product">
-        <img src="product1.jpg" alt="Product 1">
-        <h3>Product 1</h3>
-        <p>Description of Product 1</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-      <div class="product">
-        <img src="product2.jpg" alt="Product 2">
-        <h3>Product 2</h3>
-        <p>Description of Product 2</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-      <div class="product">
-        <img src="product3.jpg" alt="Product 3">
-        <h3>Product 3</h3>
-        <p>Description of Product 3</p>
-        <a href="#" class="btn">Learn More</a>
-      </div>
-    </div>
-  </section>
+                                                                                <p>
+                                                                                        We are a life saving medicines company, responsibly offering pharmaceutical products across the globe.
+                                                                                </p>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2023 Mehta Pharma. All rights reserved.</p>
-    </div>
-  </footer>
+                                                                                <a class="border_btn" href="./pages/about.html">Learn More</a>
+                                                                        </div>
+                                                                </div>
 
+                                                                <div class="right-container">
+                                                                        <div class="img-container">
+                                                                                <!-- <img src="./resources/images/icon.png" alt=""> -->
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                        <div class="header-item">
+                                                                <div class="left-container">
+                                                                        <div class="text-content">
+                                                                                <h1>
+                                                                                        Win-Win 
+                                                                                        <span>Longtime Associations</span>
+                                                                                </h1>
+
+                                                                                <p>
+                                                                                        We have strategic alliances with esteemed companies across the globe.
+
+                                                                                </p>
+
+                                                                                <a class="border_btn" href="./pages/about.html">Learn More</a>
+                                                                        </div>
+                                                                </div>
+
+                                                                <div class="right-container">
+                                                                        <div class="img-container">
+                                                                                <!-- <img src="./resources/images/icon.png" alt=""> -->
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                        <div class="header-item">
+                                                                <div class="left-container">
+                                                                        <div class="text-content">
+                                                                                <h1>
+                                                                                        Passion and  
+                                                                                        <span>Dedication</span>
+                                                                                </h1>
+
+                                                                                <p>
+                                                                                        Our qualified team is motivated to connect swiftly and effectively with impressionable responses.
+
+                                                                                </p>
+
+                                                                                <a class="border_btn" href="./pages/about.html">Learn More</a>
+                                                                        </div>
+                                                                </div>
+
+                                                                <div class="right-container">
+                                                                        <div class="img-container">
+                                                                                <!-- <img src="./resources/images/icon.png" alt=""> -->
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="swiper-pagination"></div>
+                                </div>
+                        </div>
+                        <!-- Initialize Swiper -->
+                        <script>
+                                var bannerSwiper = new Swiper(".header_swiper", {
+                                loop: false,
+                                autoplay: 
+                                {
+					delay: 5000,
+                                }, 
+                                speed: 800,
+                                pagination: {
+                                        el: ".swiper-pagination",
+                                        clickable: true,
+                                },
+                                });
+
+                                bannerSwiper.on('slideChange', function (e) {
+                                        const bannerImg = document.getElementById("banner_id");
+                                        bannerImg.style.backgroundImage = 'url(https://cbcpharma.com/demo/resources/images/banner-'+ (bannerSwiper.activeIndex + 1)  + '.webp)';    
+                                });
+                        </script>
+                </div>
+        </header>
+        <main>
+               <section class="about_us_section">
+                        <div class="container">
+                                <div class="img_container"  data-aos="fade-right" data-aos-duration="1000">
+                                        <img src="./resources/images/Group 307.png" alt="">
+                                </div>
+                                <div class="text_container"  data-aos="fade-left" data-aos-duration="1000">
+                                        <h4>About Us</h4>
+                                        <h1>
+                                                Shaping a Better Future 
+                                                through Pharmaceutical 
+                                                Innovation
+                                        </h1>
+                                        <p>
+                                                At CBC Pharma, we are driven by a clear vision: to make a positive impact on global healthcare through pharmaceutical innovation. With a steadfast commitment to improving patient well-being, we strive to deliver cutting-edge solutions that address unmet medical needs. Our dedicated team of researchers, scientists, and healthcare professionals work
+                                                 tirelessly to discover, develop, and deliver high-quality medicines and therapies.
+                                        </p>
+                                        <a class="border_btn" href="./pages/about.html">Learn More</a>
+                                </div>
+                        </div>
+               </section>
+
+               <section class="commitment_section">
+                        <div class="container">
+                                <div class="heading"   data-aos="fade-down" data-aos-duration="1000">
+                                        <h1>Our Commitments</h1>
+                                        <p>Differentiating Factors of the Pharmaceutical Industry</p>
+                                </div>
+                                <div class="commitment_container">
+                                        <div class="items"   data-aos="fade-right" data-aos-duration="1000">
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>01</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 312.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>IMPORTS</h4>
+                                                                <p>CBC is one of the best & trusted suppliers of special imported API & Finished Formulations.</p>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>02</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 313.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>CBC DOMESTIC MARKETING-INDIA</h4>
+                                                                <p>CBC has a marketing team with a wide portfolio of products. Antibiotics, Anti-neoplastic, Cardiovascular, Hormones and many more.</p>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>03</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 314.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>CBC EXPORTS </h4>
+                                                                <p>CBC exports injections/tablets / capsules.
+                                                                        CBC Intends to enhance its global presence leveraging on its vast experience, product quality & timely supply skills.
+                                                                        </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="items"   data-aos="fade-up" data-aos-duration="1000">
+                                                <div class="img_container">
+                                                        <img src="./resources/images/Group 3.png" alt="">
+                                                </div>
+                                        </div>
+                                        <div class="items"   data-aos="fade-left" data-aos-duration="1000">
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>04</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 315.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>CBC PRODUCTION </h4>
+                                                                <p>CBC gets products manufactured at sites & systems that meet the most stringent international manufacturing standards.</p>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>05</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 316.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>CBC Logistics</h4>
+                                                                <p>CBC has a huge state of the art warehouse in the outskirts of Mumbai with temperature controlled, mapping & huge cold storage facility inbuilt.</p>
+                                                        </div>
+                                                </div>
+                                                <div class="item">
+                                                        <div class="no">
+                                                                <span>06</span>
+                                                        </div>
+                                                        <div class="img_container">
+                                                                <img src="./resources/images/Group 317.png" alt="">
+                                                        </div>
+                                                        <div class="text_content">
+                                                                <h4>CBC Regulatory/ QA/ QC</h4>
+                                                                <p>Expert quality team ensures that systems & processes remain in compliance with the latest
+                                                                        standards.
+                                                                        </p>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+               </section>
+
+
+               <section class="product_section">
+                       <div class="container">
+                                <div class="heading_container">
+                                        <div class="text_content"   data-aos="fade-right" data-aos-duration="1000">
+                                                <h1>Products</h1>
+                                                <p>Our latest breakthrough medications and advanced medical devices.</p>
+                                        </div>
+                                        <a href="./pages/products.html" class="border_btn"  data-aos="fade-left" data-aos-duration="1000">View All</a>
+                                </div>
+                                <div class="product_container"  data-aos="fade-down" data-aos-duration="1000">
+                                        <!-- Swiper -->
+                                        <div class="swiper productSwiper">
+                                                <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/Atcurium 1.png" alt="">
+                                                                </div>
+                                                                <h4>Atcurium</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/DISTOSIDE 1.png" alt="">
+                                                                </div>
+                                                                <h4>HERZOVIR 500MG</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/CBCID 1.png" alt="">
+                                                                </div>
+                                                                <h4>LEVONAST</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/DISTOSIDE 1.png" alt="">
+                                                                </div>
+                                                                <h4>HERZOVIR</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/products/Anaesthesia/NEWPOL.jpg" alt="">
+                                                                </div>
+                                                                <h4>NEWPOL</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/products/Anaesthesia/SCOLAX.jpg" alt="">
+                                                                </div>
+                                                                <h4>SCOLAX</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/products/Antibiotics/CEFROX 750mg.jpg" alt="">
+                                                                </div>
+                                                                <h4>CEFROX 750mg</h4>
+                                                                <p>Differentiating Factors of the 
+                                                                        Pharmaceutical Industry</p>
+                                                                        <a href="./pages/products.html"><ion-icon name="arrow-forward-outline"></ion-icon></a>
+                                                        </div>
+                                                </div>
+                                                <div class="swiper-button-next"></div>
+                                                <div class="swiper-button-prev"></div>
+                                        </div>
+                                </div>
+
+                                <!-- Initialize Swiper -->
+                                <script>
+                                        var swiper = new Swiper(".productSwiper", {
+                                                slidesPerView: 4,
+                                                spaceBetween: 30,
+                                                navigation: {
+                                                        nextEl: ".swiper-button-next",
+                                                        prevEl: ".swiper-button-prev",
+                                                },
+                                                breakpoints: {
+                                                        "@0.00": {
+                                                        slidesPerView: 1,
+                                                        spaceBetween: 20,
+                                                        },
+                                                        "@0.75": {
+                                                        slidesPerView: 2,
+                                                        spaceBetween: 30,
+                                                        },
+                                                        "@1.00": {
+                                                        slidesPerView: 3,
+                                                        spaceBetween: 30,
+                                                        },
+                                                        "@1.50": {
+                                                                slidesPerView: 4,
+                                                                spaceBetween: 30,
+                                                        },
+                                                },
+                                        });
+                                </script>
+                        </div>
+               </section>
+
+
+               <section class="meet_director_section">
+                        <div class="container">
+                                <div class="heading"  data-aos="fade-down" data-aos-duration="1000">
+                                        <h1>Meet Our Directors</h1>
+                                        <p>Our Director brings a wealth of experience and expertise to our organization, guiding us with visionary leadership and a deep 
+                                                understanding of the pharmaceutical industry</p>
+                                </div>
+                                <div class="director_container"   data-aos="fade-down" data-aos-duration="1000">
+                                        <!-- Swiper -->
+                                        <div class="swiper directorSwiper">
+                                                <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/Mr.-Hemant.jpg" alt="">
+                                                                </div>
+                                                                <div class="text_content">
+                                                                        <h4>Mr. Hemant C. Bhagat</h4>
+                                                                        <h4 class="career">Managing Director at Chandra Bhagat Pharma Ltd</h4>
+                                                                        <p>
+                                                                                Mr. Hemant C Bhagat is the MD of Chandra Bhagat Pharma Pvt. Ltd., since the year of its formation in 2003 under his guidance, is an Indian business magnate.
+        
+                                                                        </p>
+                                                                        <div class="icon_container">
+                                                                                <!-- <div class="icon"><ion-icon name="logo-facebook"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-instagram"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-whatsapp"></ion-icon></div> -->
+                                                                                <div class="icon"><a href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGXuaNw6gGc8wAAAWwqnXVQUUCStXtrhU4PfaZZ3s5UFTJujwXz7d4CCXwYbDJE82wl0sfQK-9z_asyGwaLxrpxcB5vdQHH2xwM-eEjcHPwqEyT1CpaiqvRgRi8tw67aSuR6l0=&originalReferer=http://cbcpharma.com/&sessionRedirect=https://www.linkedin.com/company/chandra-bhagat-pharma-pvt-ltd-/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/Pranav.jpg" alt="">
+                                                                </div>
+                                                                <div class="text_content">
+                                                                        <h4>Mr. Pranav H. Bhagat</h4>
+                                                                        <h4 class="career">Whole Time Director at Chandra Bhagat Pharma Ltd</h4>
+                                                                        <p>
+                                                                                Mr. Pranav H. Bhagat is a Bachelor in pharmacy, a dynamic leader of Chandra Bhagat Pharma Pvt Ltd since 2007 and till date. Over the years has been handling various businesses related activities and Corporate Administration.           
+                                                                        </p>
+                                                                        <div class="icon_container">
+                                                                                <!-- <div class="icon"><ion-icon name="logo-facebook"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-instagram"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-whatsapp"></ion-icon></div> -->
+                                                                                <div class="icon"><a href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGXuaNw6gGc8wAAAWwqnXVQUUCStXtrhU4PfaZZ3s5UFTJujwXz7d4CCXwYbDJE82wl0sfQK-9z_asyGwaLxrpxcB5vdQHH2xwM-eEjcHPwqEyT1CpaiqvRgRi8tw67aSuR6l0=&originalReferer=http://cbcpharma.com/&sessionRedirect=https://www.linkedin.com/company/chandra-bhagat-pharma-pvt-ltd-/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/Prachi.jpg" alt="">
+                                                                </div>
+                                                                <div class="text_content">
+                                                                        <h4>Ms. Prachi Pranav Bhagat</h4>
+                                                                        <h4 class="career">Executive Director and CFO at Chandra Bhagat Pharma Ltd</h4>
+                                                                        <p>
+                                                                                Mrs. Prachi Pranav Bhagat is a graduate in pharmacy from Mumbai University. Also holding degree in Business Management from Mumbai University & an import-export diploma holder.
+                                                                        </p>
+                                                                        <div class="icon_container">
+                                                                                <!-- <div class="icon"><ion-icon name="logo-facebook"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-instagram"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-whatsapp"></ion-icon></div> -->
+                                                                                <div class="icon"><a href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGXuaNw6gGc8wAAAWwqnXVQUUCStXtrhU4PfaZZ3s5UFTJujwXz7d4CCXwYbDJE82wl0sfQK-9z_asyGwaLxrpxcB5vdQHH2xwM-eEjcHPwqEyT1CpaiqvRgRi8tw67aSuR6l0=&originalReferer=http://cbcpharma.com/&sessionRedirect=https://www.linkedin.com/company/chandra-bhagat-pharma-pvt-ltd-/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                                <div class="img_container">
+                                                                        <img src="./resources/images/jay.jpg" alt="">
+                                                                </div>
+                                                                <div class="text_content">
+                                                                        <h4>Mr. Jay H. Bhagat</h4>
+                                                                        <h4 class="career">Director at Chandra Bhagat Pharma Ltd</h4>
+                                                                        <p>
+                                                                                Graduate in Management Studies, Mr. Jay is the compassionate director for CBC Pharma. He looks after the marketing aspects of the company. His experience added modern touch to the business and known for professional attitude in the industry.
+                                                                        </p>
+                                                                        <div class="icon_container">
+                                                                                <!-- <div class="icon"><ion-icon name="logo-facebook"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-instagram"></ion-icon></div>
+                                                                                <div class="icon"><ion-icon name="logo-whatsapp"></ion-icon></div> -->
+                                                                                <div class="icon"><a href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGXuaNw6gGc8wAAAWwqnXVQUUCStXtrhU4PfaZZ3s5UFTJujwXz7d4CCXwYbDJE82wl0sfQK-9z_asyGwaLxrpxcB5vdQHH2xwM-eEjcHPwqEyT1CpaiqvRgRi8tw67aSuR6l0=&originalReferer=http://cbcpharma.com/&sessionRedirect=https://www.linkedin.com/company/chandra-bhagat-pharma-pvt-ltd-/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="swiper-pagination"></div>
+                                        </div>
+                                </div>
+
+                                  <!-- Initialize Swiper -->
+                                <script>
+                                        var swiper = new Swiper(".directorSwiper", {
+                                                slidesPerView: 3,
+                                                spaceBetween: 30,
+                                                autoplay: true,
+                                                pagination: {
+                                                        el: ".swiper-pagination",
+                                                        clickable: true,
+                                                },
+                                                breakpoints: {
+                                                        "@0.00": {
+                                                        slidesPerView: 1,
+                                                        spaceBetween: 20,
+                                                        },
+                                                        "@0.75": {
+                                                        slidesPerView: 2,
+                                                        spaceBetween: 30,
+                                                        },
+                                                        "@1.00": {
+                                                        slidesPerView: 3,
+                                                        spaceBetween: 30,
+                                                        },
+                                                        "@1.50": {
+                                                                slidesPerView: 3,
+                                                                spaceBetween: 30,
+                                                        },
+                                                },
+                                        });
+                                </script>
+                        </div>
+               </section>
+
+
+               <section class="blog_section">
+                        <div class="container">
+                                <div class="heading_container">
+                                        <div class="text_content"  data-aos="fade-right" data-aos-duration="1000">
+                                                <h1>Recent News & Blog</h1>
+                                                <p>Innovation for wellness lies at the heart of modern pharmaceutical advancements. </p>
+                                        </div>
+                                        <a href="/news/" class="border_btn"  data-aos="fade-left" data-aos-duration="1000">View All</a>
+                                </div>
+
+                                <div class="blog_container"   data-aos="fade-down" data-aos-duration="1000">
+                                        <div class="card">
+                                                <div class="img_container">
+                                                        <img src="https://cbcpharma.com/news/wp-content/uploads/2023/06/image-1.jpg" alt="">
+                                                        <div class="date_text">
+                                                                <span>25th Jan 2023</span>
+                                                        </div>
+                                                </div>
+                                                <div class="text_content">
+                                                        <h4>BSE for IPO
+                                                        </h4>
+                                                        <p>
+                                                                This is the link of the company prospectus uploaded on the BSE website for SME IPO approval
+
+
+                                                        </p>
+                                                        <a href="https://cbcpharma.com/news/01-bse-for-ipo/">Read More<ion-icon name="chevron-forward-outline"></ion-icon></a>
+                                                </div>
+                                        </div>
+                                        <div class="card">
+                                                <div class="img_container">
+                                                        <img src="https://cbcpharma.com/news/wp-content/uploads/2023/06/image-2.jpg" alt="">
+                                                        <div class="date_text">
+                                                                <span>16th Feb 2023</span>
+                                                        </div>
+                                                </div>
+                                                <div class="text_content">
+                                                        <h4>QualPharma Cover Feature</h4>
+                                                        <p>
+                                                                QualPharma December Edition has our CEO on cover with a featured interview. 
+                                                        </p>
+                                                        <a href="https://cbcpharma.com/news/02-qualpharma-cover-feature/">Read More<ion-icon name="chevron-forward-outline"></ion-icon></a>
+                                                </div>
+                                        </div>
+                                        <div class="card">
+                                                <div class="img_container">
+                                                        <img src="https://cbcpharma.com/news/wp-content/uploads/2023/06/image-4.jpg" alt="">
+                                                        <div class="date_text">
+                                                                <span>2nd Jun 2023</span>
+                                                        </div>
+                                                </div>
+                                                <div class="text_content">
+                                                        <h4>Exclusive Interview</h4>
+                                                        <p>
+                                                                Our CEO Prachi Bhagat was featured in the IndianBusinessTV.net magazine on Pharma Update.
+
+
+                                                        </p>
+                                                        <a href="https://cbcpharma.com/news/04-exclusive-interview/">Read More<ion-icon name="chevron-forward-outline"></ion-icon></a>
+                                                </div>
+                                        </div>
+                                </div>
+                        </div>
+               </section>
+
+
+               <section class="get_in_touch_section">
+                        <div class="container">
+                                <div class="form_container"  data-aos="fade-right" data-aos-duration="1000">
+                                        <div class="heading_container">
+                                                <div class="text_content">
+                                                        <h1>Get In Touch</h1>
+                                                        <p>Leave us a message our team will connect with you within 24 hours. </p>
+                                                </div>
+                                        </div>
+
+                                        <form action="#">
+                                                <input type="text" placeholder="Full Name" name="name" id="name">
+                                                <input type="text" placeholder="Email Address" name="email" id="email">
+                                                <input type="text" placeholder="Phone Number" name="no" id="no">
+                                                <textarea placeholder="Message" id="message"></textarea>
+                                                <div  class="g-recaptcha" data-sitekey="6Le50eImAAAAADClM4X_5xhHm4T8iqZ5z2lhQMf3" data-callback="correctCaptcha" style="margin: 1rem 0;"></div>
+                                                <h4 id="success">Message Sent Successfully</h4>
+                                                <button href="#" class="border_btn" type="button" onclick="sendEmail()" style="cursor: pointer; width: 100%;">Send</button>
+                                                <h4 id="alert" style="color: red;">Unable to send Message</h4>
+                                        </form>
+                                </div>
+                                <!-- Google Recaptcha  -->
+                                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                                      
+
+                                <script>
+                                        var verification = false;
+                                        var correctCaptcha = function(response) {
+                                                verification = true;
+                                        };
+
+                                        const success = document.getElementById("success");
+                                        const fail = document.getElementById("alert");
+
+                                        function sendEmail() {
+                                                if (verification) {
+                                                        var name = document.getElementById("name").value;
+                                                        var email = document.getElementById("email").value;
+                                                        var number = document.getElementById("no").value;
+                                                        var message = document.getElementById("message").value;
+                                        
+                                                        var formData = new FormData();
+                                                        formData.append('email', email);
+                                                        formData.append('subject', "no-reply");
+                                                        formData.append('name', name);
+                                                        formData.append('number', number);
+                                                        formData.append('message', message);
+
+                                                        var xhr = new XMLHttpRequest();
+                                                        xhr.open('POST', 'https://cbcpharma.com/send_email.php', true);
+                                                        xhr.onload = function (data) {
+                                                                if (xhr.status === 200) {
+                                                                        success.style.display = "block";
+                                                                        setTimeout(function() {
+                                                                        success.style.display = "none";
+                                                                        }, 4000);
+                                                                        console.log("Success")
+                                                                } else {
+                                                                        fail.style.display = "block";
+                                                                        setTimeout(function() {
+                                                                        fail.style.display = "none";
+                                                                        }, 4000);
+                                                                        console.log("Not Success")
+                                                                }
+                                                                console.log(data)
+                                                        };
+                                                        xhr.send(formData);
+                                                } else {
+                                                        alert("Not Verified")
+                                                }
+                                        }
+                                      </script>
+
+                                <div class="map"  data-aos="fade-left" data-aos-duration="1000">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d30176.59156959738!2d72.85428458372567!3d19.016462959021883!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cffa28ec2067%3A0xbd39e5edb8ebc5e5!2sChandra%20Bhagat%20Pharma%20Limited!5e0!3m2!1sen!2sin!4v1688104131388!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
+                                </div>
+                        </div>
+               </section>
+        </main>
+
+        <footer>
+                <div class="container">
+                        <div class="footer_links">
+                                <div class="about_info">
+                                        <h3>About</h3>
+                                        <p>
+                                                We are a life saving medicines company, responsibly offering pharmaceutical products across the globe.
+                                        </p>
+                                </div>
+        
+                                <div class="links">
+                                        <h3>Quick Links</h3>
+                                        <ul>
+                                                <li><a href="./index.html">Home</a></li>
+                                                <li><a href="./pages/about.html">About Us</a></li>
+                                                <li><a href="./pages/directors.html">Director's Profile</a></li>
+                                                <li><a href="./pages/products.html">Products</a></li>
+                                        </ul>
+                                </div>
+        
+                                <div class="links">
+                                        <h3 style="visibility: hidden;">Quick Links</h3>
+                                        <ul>
+                                                <li><a href="/news/">News</a></li>
+                                                <li><a href="./pages/invester.html">Investors</a></li>
+                                                <li><a href="./pages/gallery.html">Gallery</a></li>
+                                                <li><a href="./pages/contact.html">Contact</a></li>
+                                        </ul>
+                                </div>
+        
+                                <div class="contact_info">
+                                        <h3>Contact Details</h3>
+                                        <p>
+                                                Phone: <a href="tel:+91 9930004507">+91 9930004507</a>
+                                        </p>
+                                        <p>
+                                                Email: <a href="mailto:business@cbcpharma.com">business@cbcpharma.com</a>
+                                        </p>
+                                </div>
+        
+                                <div class="social_links">
+                                        <h3>Social Links</h3>
+                                        <div class="icon_container">
+                                                <div class="icon"><a href="https://wa.me/+919930004507/" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a></div>
+                                                <div class="icon"><a target="_blank" href="https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGXuaNw6gGc8wAAAWwqnXVQUUCStXtrhU4PfaZZ3s5UFTJujwXz7d4CCXwYbDJE82wl0sfQK-9z_asyGwaLxrpxcB5vdQHH2xwM-eEjcHPwqEyT1CpaiqvRgRi8tw67aSuR6l0=&originalReferer=http://cbcpharma.com/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fchandra-bhagat-pharma-pvt-ltd-%2F"><ion-icon name="logo-linkedin"></ion-icon></a></div>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="footer-info">
+                        <span>2023 Copyright © CBC. Pharma. <span class="rights">All rights reserved.</span>
+                        <span class="developed">
+                                Design & Developed by <a href="http://innovins.com/" target="_blank">Innovins</a>
+                        </span>
+                </div>
+        </footer>
+        <!-- <script src="https://unpkg.com/aos@next/dist/aos.js"></script> -->
+        <script src="./resources/js/aos.js"></script>
+        <script>
+                AOS.init();
+              </script>
 </body>
 </html>
